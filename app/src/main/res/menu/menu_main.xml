@@ -1,0 +1,55 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.mdmenusandroid.MainActivity">
+    <!-- app:showAsAction="never" => The item here is not going to be in the Toolbar.
+         app:showAsAction="ifRoom" => If there is enough space here inside in Toolbar then the item is going to show in Toolbar.
+         Otherwise it is going to be create in elips of the Toolbar.-->
+
+    <!--Now,I want to create a submenu.Submenu means that if click on it then another menu is going to open with another items.
+    We have to create a submenu inside of <item tag.-->
+    <item
+        android:id="@+id/item1"
+        android:orderInCategory="1"
+        android:title="@string/item1_name"
+        app:showAsAction="ifRoom" >
+        <!-- We will create another menu tag in order to create submenu.-->
+
+        <menu>
+
+            <item android:id="@+id/color_red"
+                android:orderInCategory="1"
+                android:title="RED"
+                app:showAsAction="ifRoom">
+
+                <!--We add checkable attribute in <item inside of <menu
+                this attribute provides check this item but we have to interact with the MainActivity.class
+                to put some code inside in the class.Let's go to MainActivity.class.-->
+                <menu>
+                    <item android:id="@+id/color_red_dark"
+                        android:orderInCategory="1"
+                        android:title="Dark Red"
+                        app:showAsAction="ifRoom"
+                        android:checkable="true"
+                        android:checked="true"/>
+                    <item android:id="@+id/color_red_light"
+                        android:orderInCategory="2"
+                        android:title="Light Red"
+                        app:showAsAction="ifRoom"
+                        android:checkable="true"
+                        android:checked="false"/>
+                </menu>
+            </item>
+            <item android:id="@+id/color_blue"
+                android:orderInCategory="2"
+                android:title="BLUE"
+                app:showAsAction="ifRoom"/>
+            <item android:id="@+id/color_green"
+                android:orderInCategory="3"
+                android:title="GREEN"
+                app:showAsAction="ifRoom"/>
+
+        </menu>
+
+    </item>
+</menu>
